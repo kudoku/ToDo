@@ -1,0 +1,20 @@
+<%= form_for(@task) do |f| %>
+
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<%= f.label :category %>
+	<%= f.text_field :category %>
+
+	<%= f.label :priority %>
+	<%= f.select :priority, [['High', 'high'], ['Medium', 'medium'], ['Low', 'low']] %>
+
+<!-- 	<%= f.label :is_completed %>
+	<%= f.check_box :is_completed %> -->
+
+	<%= f.label :is_completed %>
+	<%= f.text_field :is_completed %>
+
+	<%= f.submit %>
+
+<% end %>
