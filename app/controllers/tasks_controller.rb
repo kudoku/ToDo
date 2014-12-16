@@ -27,9 +27,13 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task.update_attributes(task_params)
+    redirect_to root_url
   end
 
   def destroy
+    @task.destroy
+    redirect_to root_url
   end
 
 

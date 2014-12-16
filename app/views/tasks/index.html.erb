@@ -1,12 +1,24 @@
 <h2>Go young grasshopper.</h2> 
 <p><%= link_to 'Go now', new_task_path %></p>
 
-<h3>Your tasks here:</h3>	
-<% @tasks.each do |task| %>
-	<ol>
-		<p><li><em><%= task.title %></em></li> </p> 
-				<%= task.category %>
-				<%= task.priority %>
-				<%= task.is_completed %>
-		</ol>
-<% end %>
+<ol>
+	<h4>Your Tasks:</h4>	
+	<% @tasks.each do |task| %>
+		<div><li><p><em><%= task.title %></em> 
+
+			<%= link_to 'Give up', task_path(task) , method: :delete, data: {confirm: 'Giving up already?'} %></p>
+			</li>
+			<ul>
+				<li><p>Category: <%= task.category %> </p></li> 
+				<li><p>Priority: <%= task.priority %> </p></li> 
+				<li class='index_form'>  			
+					<%= form_for(task) do |f| %>
+						<%= f.check_box :is_completed %>
+						<%= f.submit 'Complete?' %>
+					
+
+					
+					<% end %></li> 
+			</ul></div>
+	<% end %>
+</ol>
